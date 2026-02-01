@@ -1,37 +1,45 @@
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import "./index.css";
-
-import logo from "./logo.svg";
-import reactLogo from "./react.svg";
+import { useTheme } from "./providers/ThemeProvider";
+import { Moon, SparklesIcon } from "lucide-react";
+import { Button } from "./components/ui/button";
+import { ThemeToggle } from "./components/ThemeToggle";
+import SplitText from "./components/SplitText";
+import BackgroundDots from './components/BackgroundDots';
 
 export function App() {
+
+    const handleAnimationComplete = () => {
+        console.log('done');
+    };
+
     return (
-        <div className="container mx-auto p-8 text-center relative z-10">
-            <div className="flex justify-center items-center gap-8 mb-8">
-                <img
-                    src={logo}
-                    alt="Bun Logo"
-                    className="h-36 p-6 transition-all duration-300 hover:drop-shadow-[0_0_2em_#646cffaa] scale-120"
-                />
-                <img
-                    src={reactLogo}
-                    alt="React Logo"
-                    className="h-36 p-6 transition-all duration-300 hover:drop-shadow-[0_0_2em_#61dafbaa] animate-[spin_20s_linear_infinite]"
-                />
+        <>
+            <div style={{ width: '100%', height: '100%', position: 'absolute' }}>
+                <BackgroundDots />
             </div>
-            <Card>
-                <CardHeader className="gap-4">
-                    <CardTitle className="text-3xl font-bold">Bun + React</CardTitle>
-                    <CardDescription>
-                        Edit <code className="rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono">src/App.tsx</code> and save to
-                        test HMR
-                    </CardDescription>
-                </CardHeader>
-                {/* <CardContent>
-                    <APITester />
-                </CardContent> */}
-            </Card>
-        </div>
+            <div className="flex flex-col gap-4 text-center p-8 items-center">
+                <Card className="border-none bg-background shadow-none p-0">
+                    <SplitText
+                        text="Bonjour ! 👋"
+                        className="text-3xl font-semibold text-center"
+                        delay={50}
+                        duration={1.5}
+                        ease="power3.out"
+                        splitType="chars"
+                        from={{ opacity: 0, y: 40 }}
+                        to={{ opacity: 1, y: 0 }}
+                        threshold={0.1}
+                        rootMargin="-100px"
+                        textAlign="center"
+                        onLetterAnimationComplete={handleAnimationComplete}
+                    />
+                </Card>
+            </div>
+            <div className="m-8 absolute top-0 right-0 ">
+                <ThemeToggle />
+            </div>
+        </>
     );
 }
 
