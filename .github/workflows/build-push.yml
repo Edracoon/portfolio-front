@@ -1,0 +1,15 @@
+name: Docker Image CI for GHCR
+on:
+  push
+branches:
+  - main
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v3
+      - name: Build and push the image
+        run : |
+          echo ${{ secrets.GH_PAT }} | docker login --username Edracoon --password-stdin ghcr.io
+          docker build . --tag ghcr.io/Edracoon/portfolio-front:latest
+          docker push ghcr.io/Edracoon/portfolio-front:latest
