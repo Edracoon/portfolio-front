@@ -11,5 +11,5 @@ jobs:
       - name: Build and push the image
         run : |
           echo ${{ secrets.GH_PAT }} | docker login --username Edracoon --password-stdin ghcr.io
-          docker build . --tag ghcr.io/Edracoon/portfolio-front:latest
-          docker push ghcr.io/Edracoon/portfolio-front:latest
+          docker build . --tag ghcr.io/edracoon/portfolio-front:latest
+          docker push ghcr.io/edracoon/portfolio-front:latest
