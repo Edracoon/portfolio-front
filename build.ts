@@ -148,30 +148,3 @@ console.table(outputTable);
 const buildTime = (end - start).toFixed(2);
 
 console.log(`\n✅ Build completed in ${buildTime}ms\n`);
-
-
-async function copyDir(src: string, dest: string) {
-    await mkdir(dest, { recursive: true });
-    const entries = await readdir(src, { withFileTypes: true });
-
-    for (const entry of entries) {
-        const srcPath = path.join(src, entry.name);
-        const destPath = path.join(dest, entry.name);
-
-        if (entry.isDirectory())
-            await copyDir(srcPath, destPath);
-
-        else if (entry.isFile()) {
-            await mkdir(path.dirname(destPath), { recursive: true });
-            await copyFile(srcPath, destPath);
-        }
-    }
-}
-
-// ... après Bun.build()
-const publicDir = path.join(process.cwd(), "public");
-if (existsSync(publicDir)) {
-    console.log("📦 Copying public/ to dist/public/");
-    await copyDir(publicDir, path.join(outdir, "public"));
-}
-

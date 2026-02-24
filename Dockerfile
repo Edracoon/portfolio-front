@@ -8,7 +8,8 @@ COPY package.json bun.lock ./
 RUN bun install --frozen-lockfile
 
 COPY . .
-RUN bun run build.ts --outdir dist --target browser
+RUN bun run build.ts --outdir dist --target browser \
+    && cp -r public dist/
 
 # Serve built files with nginx
 FROM nginx:${NGINX_VERSION} AS run
