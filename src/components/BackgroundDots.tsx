@@ -3,11 +3,9 @@ import { styled } from "styled-components";
 const BgDots = styled.div`
     &::before {
         content: "";
-        pointer-events: none;
-        z-index: -3;
         -webkit-mask-composite: source-in;
-        background-image: radial-gradient(circle,#392e4e 1px,#0000 1px);
-        background-size: 35px 35px;
+        background-image: radial-gradient(circle,oklch(65.6% 0.241 354.308) 1px,#0000 1px);
+        background-size: 50px 50px;
         position: absolute;
         top: 0;
         right: 0;
@@ -19,7 +17,7 @@ const BgDots = styled.div`
 `
 
 function BackgroundDots() {
-    return <BgDots className="w-full h-full z-[-3] overflow-hidden relative" />
+    return <BgDots className="w-full h-full overflow-hidden relative" />
 }
 
 export default BackgroundDots;
