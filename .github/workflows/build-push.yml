@@ -5,6 +5,8 @@ on:
       - '*'
     branches:
       - main
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   build_and_push:
@@ -19,9 +21,17 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GH_PAT }}
+      
+      - name: Set image tag
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "TAG=pr-${{ github.event.pull_request.number }}" >> $GITHUB_ENV
+          else
+            echo "TAG=latest" >> $GITHUB_ENV
+          fi
 
       - name: Build and push
         run : |
-          docker build . --tag ghcr.io/edracoon/portfolio-front:latest
-          docker push ghcr.io/edracoon/portfolio-front:latest
+          docker build . --tag ghcr.io/edracoon/portfolio-front:${TAG}
+          docker push ghcr.io/edracoon/portfolio-front:${TAG}
 
