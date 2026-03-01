@@ -20,7 +20,7 @@ type ProjectCardProps = {
 
 export function ProjectCard({ title, links, body, techStack, infoList, imageUrl, className, ...props }: ProjectCardProps) {
     return (
-        <Card className={"border-2 border-dashed bg-background shadow-none p-5 my-2 text-justify leading-relaxed " + className} {...props}>
+        <Card className={"border-2 border-dashed bg-background shadow-none p-4 pb-0 my-2 text-justify leading-relaxed relative h-90 gap-4 " + className} {...props}>
             <div className="flex flex-row justify-between w-full">
                 <div>
                     <CardTitle>{title}</CardTitle>
@@ -36,19 +36,21 @@ export function ProjectCard({ title, links, body, techStack, infoList, imageUrl,
                     )}
                 </div>
             </div>
-            {body}
-            {infoList.length > 0 && (
-                <TypoList className="text-sm">
-                    {infoList.map((item, index) => (
-                        <li key={index}>{item}</li>
-                    ))}
-                </TypoList>
-            )}
+            <div className="overflow-y-auto">
+                {body}
+                {infoList.length > 0 && (
+                    <TypoList className="text-sm pt-2 mb-12 sm:mb-0">
+                        {infoList.map((item, index) => (
+                            <li key={index}>{item}</li>
+                        ))}
+                    </TypoList>
+                )}
+            </div>
             {techStack && (
-                <div className="flex flex-row gap-2 w-full justify-end overflow-x-auto">
+                <div className="flex flex-row gap-2 justify-end absolute bottom-2 right-8 rounded-lg bg-background/60 p-1">
                     {techStack.map((Techno, index) =>
                         <>
-                            <Techno className="w-6 h-6" />
+                            <Techno className="w-4 h-4 sm:w-6 sm:h-6" />
                             {(index < techStack.length - 1) && <TypoInline className="text-sm content-center"> • </TypoInline>}
                         </>
                     )}

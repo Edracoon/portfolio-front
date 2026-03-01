@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { GomokuCard } from "@/modules/projects/gomoku";
+import { GomokuCard } from "@/modules/projects/Gomoku";
 import { Chess42Card } from "@/modules/projects/Chess42";
 
 export function Carousel() {
@@ -62,7 +62,7 @@ export function Carousel() {
         });
     };
 
-    const projects = [GomokuCard, Chess42Card, GomokuCard, GomokuCard]
+    const projects = [GomokuCard, Chess42Card]
 
     return (
         <>
@@ -71,12 +71,13 @@ export function Carousel() {
 
                 {/* scroll */}
                 <div onScroll={onScroll} ref={scrollerRef} className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth justify-start gap-6 
-                    [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-[calc(50%-min(640px,100%)/2)]">
+                    [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
+                    px-[calc(50%-min(640px,100%)/2)] lg:px-[calc(50%-min(800px,100%)/2)]">
                     {projects.map((Project, i) => (
                         <div
                             key={i}
                             ref={(el) => { cardRefs.current[i] = el }}
-                            className="snap-center shrink-0 w-full max-w-160"
+                            className="snap-center shrink-0 w-full max-w-160 lg:max-w-200"
                         >
                             <Project />
                         </div>
