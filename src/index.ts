@@ -27,3 +27,4 @@ const server = serve({
 });
 
 console.log(`🚀 Server running at ${server.url}`);
+console.log(`Bun.env`, Bun.env);
