@@ -1,6 +1,6 @@
 import React from "react"
 
-type TypoParams = { className?: string } & React.PropsWithChildren
+type TypoParams = { className?: string } & React.PropsWithChildren & React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>
 
 export function TypoH1({ className, children }: TypoParams) {
     return (
@@ -10,7 +10,7 @@ export function TypoH1({ className, children }: TypoParams) {
     )
 }
 
-export function TypoH2({ className, children }: React.PropsWithChildren & { className?: string, sx?: string }) {
+export function TypoH2({ className, children }: TypoParams) {
     return (
         <h2 className={"scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 " + className}>
             {children}
@@ -28,15 +28,23 @@ export function TypoH3({ className, children }: TypoParams) {
 
 export function TypoH4({ className, children }: TypoParams) {
     return (
-        <h4 className={"scroll-m-20 text-xl font-semibold tracking-tight " + className}>
+        <h4 id="" className={"scroll-m-20 text-xl font-semibold tracking-tight " + className}>
             {children}
         </h4>
     )
 }
 
+export function TypoSubtitle({ className, children }: TypoParams) {
+    return (
+        <p className={"text-lg font-medium " + className}>
+            {children}
+        </p>
+    )
+}
+
 export function TypoP({ className, children }: TypoParams) {
     return (
-        <p className={"leading-7 not-first:mt-6 " + className}>
+        <p className={"leading-7 " + className}>
             {children}
         </p>
     )
@@ -44,7 +52,7 @@ export function TypoP({ className, children }: TypoParams) {
 
 export function TypoInline({ className, children }: TypoParams) {
     return (
-        <div className={"leading-7 not-first:mt-6 inline " + className}>
+        <div className={"inline " + className}>
             {children}
         </div>
     )
@@ -58,11 +66,21 @@ export function TypoBlockquote({ className, children }: TypoParams) {
     )
 }
 
-export function TypographyList({ className, children }: TypoParams) {
+export function TypoList({ className, children }: TypoParams) {
     return (
-        <ul className={"my-6 ml-6 list-disc [&>li]:mt-2 " + className}>
+        <ul className={"ml-6 list-disc " + className}>
             {/* <li></li> [] */}
             {children}
         </ul>
+    )
+}
+
+export function LinkInline({ className, href, label }: TypoParams & { href: string, label: string }) {
+    return (
+        <TypoInline className={className}>
+            <a href={href} aria-label={label} target="_blank" className="text-inherit cursor-pointer hover:text-accent">
+                {label}
+            </a>
+        </TypoInline>
     )
 }
