@@ -1,6 +1,7 @@
 import { ProjectCard } from "@/components/ProjectCart";
 import { LinkInline, TypoInline, TypoP } from "@/components/ui/typography";
-import { CPlusPlus, React, TailwindCSS, WebAssembly } from "developer-icons";
+import { CPlusPlus, React, TailwindCSS, WebAssembly, TypeScript } from "developer-icons";
+import env from "@/env";
 
 export function GomokuCard(props: React.HTMLAttributes<HTMLDivElement>) {
     return (
@@ -8,7 +9,7 @@ export function GomokuCard(props: React.HTMLAttributes<HTMLDivElement>) {
             {...props}
             className="w-full"
             title="GomokuV2"
-            links={[{ label: "github", href: "https://github.com/Edracoon/GomokuV2" }, { label: "play", href: "GOMOKU_URL" }]}
+            links={[{ label: "github", href: "https://github.com/Edracoon/GomokuV2" }, { label: "play", href: env.GOMOKU_URL! }]}
             body={
                 <TypoP className="text-sm">
                     High-performance <LinkInline href={"https://wikipedia.org/wiki/Gomoku"} label={"gomoku"} className="font-semibold" /> game
@@ -18,7 +19,7 @@ export function GomokuCard(props: React.HTMLAttributes<HTMLDivElement>) {
                     with a custom <LinkInline href={"https://wikipedia.org/wiki/Zobrist_hashing"} label={"zobrist hash table"} className="font-semibold" />.
                 </TypoP>
             }
-            techStack={[CPlusPlus, WebAssembly, React, TailwindCSS]}
+            techStack={[CPlusPlus, WebAssembly, TypeScript, React, TailwindCSS]}
             infoList={[
                 "Computing time constraint of less than 500ms on average.",
                 "Dashboard showing code performances, search depth, and moves scores.",

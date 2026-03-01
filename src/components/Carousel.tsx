@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { GomokuCard } from "@/modules/projects/gomoku";
-
+import { Chess42Card } from "@/modules/projects/Chess42";
 
 export function Carousel() {
 
@@ -23,7 +23,6 @@ export function Carousel() {
 
     const lockWhenProgrammaticScroll = () => {
         setLockProgrScroll(true);
-        // fn();
         setTimeout(() => setLockProgrScroll(false), 300);
     }
 
@@ -63,7 +62,7 @@ export function Carousel() {
         });
     };
 
-    const projects = [GomokuCard, GomokuCard, GomokuCard, GomokuCard]
+    const projects = [GomokuCard, Chess42Card, GomokuCard, GomokuCard]
 
     return (
         <>

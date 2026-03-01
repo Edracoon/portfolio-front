@@ -4,10 +4,12 @@ import { ThemeToggle } from "./components/ThemeToggle";
 import { TypoP, TypoH4, TypoInline, LinkInline } from "./components/ui/typography";
 import SplitText from "./components/SplitText";
 import BackgroundDots from './components/BackgroundDots';
-import env from "./env";
 import { Carousel } from "./components/Carousel";
+import { setFavicon } from "./components/CustomFavicon";
 
 export function App() {
+
+    setFavicon("--accent");
 
     return (
         <>
