@@ -1,7 +1,7 @@
 import "./index.css";
 import { Card } from "@/components/ui/card";
 import { ThemeToggle } from "./components/ThemeToggle";
-import { TypoP, TypoH4, TypoInline, LinkInline } from "./components/ui/typography";
+import { TypoH4 } from "./components/ui/typography";
 import SplitText from "./components/SplitText";
 import BackgroundDots from './components/BackgroundDots';
 import { Carousel } from "./components/Carousel";
@@ -35,11 +35,11 @@ export function App() {
             </div>
             <div className="relative">
 
-                {/* fades */}
-                <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-linear-to-r from-background/80 to-transparent" />
-                <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-linear-to-l from-background/80 to-transparent" />
+                {/* sides fades */}
+                <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-linear-to-r from-background to-transparent" />
+                <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-linear-to-l from-background to-transparent" />
 
-                <div className="flex flex-col text-center items-center px-6">
+                <div className="flex flex-col text-center items-center px-6 sm:px-0">
                     <div className="w-160 max-w-full text-left pt-10">
                         <Card className="border-2 border-dashed bg-background shadow-none p-5 text-justify leading-relaxed">
                             Ingénieur logiciel, passionné par la conception et l'architecture de
