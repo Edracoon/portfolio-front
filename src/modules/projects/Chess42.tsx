@@ -1,4 +1,4 @@
-import { ProjectCard } from "@/components/ProjectCart";
+import { ProjectCard } from "@/components/ProjectCard";
 import { TypoP } from "@/components/ui/typography";
 import { SvelteJS, MongoDB, NodeJs, JavaScript } from "developer-icons";
 

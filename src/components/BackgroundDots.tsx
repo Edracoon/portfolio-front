@@ -4,7 +4,7 @@ const BgDots = styled.div`
     &::before {
         content: "";
         -webkit-mask-composite: source-in;
-        background-image: radial-gradient(circle, var(--accent) 1px,#0000 1px);
+        background-image: radial-gradient(circle, var(--foreground) 1px,#0000 1px);
         background-size: 50px 50px;
         position: absolute;
         top: 0;
