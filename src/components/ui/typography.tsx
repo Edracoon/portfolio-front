@@ -44,7 +44,7 @@ export function TypoSubtitle({ className, children }: TypoParams) {
 
 export function TypoP({ className, children }: TypoParams) {
     return (
-        <p className={"leading-7 " + className}>
+        <p className={"leading-6 " + className}>
             {children}
         </p>
     )
@@ -52,9 +52,9 @@ export function TypoP({ className, children }: TypoParams) {
 
 export function TypoInline({ className, children }: TypoParams) {
     return (
-        <div className={"inline " + className}>
+        <span className={"inline " + className}>
             {children}
-        </div>
+        </span>
     )
 }
 
