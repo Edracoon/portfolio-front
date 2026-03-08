@@ -3,7 +3,7 @@ type EnvType = {
     GOMOKU_URL: string | undefined,
 }
 
-const env = {
+const env: EnvType = {
     PORTFOLIO_URL: process.env.BUN_PUBLIC_PORTFOLIO_URL,
     GOMOKU_URL: process.env.BUN_PUBLIC_GOMOKU_URL,
 }
