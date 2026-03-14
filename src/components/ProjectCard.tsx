@@ -44,7 +44,7 @@ export function ProjectCard({ title, links, body, techStack, infoList, imageUrl,
                 <ScrollHintContainer scroll="vertical">
                     {body}
                     {infoList.length > 0 && (
-                        <TypoList className="text-sm">
+                        <TypoList className="text-sm pt-2">
                             {infoList.map((item, index) => (
                                 <li key={`list-${index}`}>{item}</li>
                             ))}
