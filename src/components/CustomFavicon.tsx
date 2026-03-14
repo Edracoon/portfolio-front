@@ -27,6 +27,3 @@ export function setFavicon(color: string = "--accent") {
         link.href = url;
     }
 }
-
-// Exemple :
-// setFavicon("--accent");

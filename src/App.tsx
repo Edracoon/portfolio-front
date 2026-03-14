@@ -4,10 +4,10 @@ import { ThemeToggle } from "./components/ThemeToggle";
 import { TypoH4 } from "./components/ui/typography";
 import SplitText from "./components/SplitText";
 import BackgroundDots from './components/BackgroundDots';
-import { Carousel } from "./components/Carousel";
 import { setFavicon } from "./components/CustomFavicon";
 import { GomokuCard } from "@/modules/projects/Gomoku";
 import { Chess42Card } from "@/modules/projects/Chess42";
+import { SudokuSolverCard } from "@/modules/projects/SudokuSolver";
 
 export function App() {
 
@@ -15,7 +15,7 @@ export function App() {
 
     return (
         <>
-            <div style={{ width: '100%', height: '100%', position: 'absolute', zIndex: -100 }}>
+            <div style={{ width: '100%', height: '100%', position: 'fixed', zIndex: -100 }}>
                 <BackgroundDots />
             </div>
             <div className="relative">
@@ -40,8 +40,8 @@ export function App() {
                                 rootMargin="-100px"
                                 textAlign="center"
                             />
-                            Software engineer, passionate about designing and architecting scalable, secure, and evolvable systems.
-                            I seek to design solutions that are coherent, maintainable, and above all, aligned with the product.
+                            This is the place where I share some of my personal projects and experiments.
+                            If you want to know more about me, professionally, you can check the links below.
                             {/* Ingénieur logiciel, passionné par la conception et l'architecture de
                             systèmes scalables, sécurisés et évolutifs.
                             Je cherche à concevoir des solutions cohérentes, maintenables et avant tout alignées avec le produit. */}
@@ -53,13 +53,16 @@ export function App() {
                             </div>
                         </Card>
                     </section>
-                    <section className="w-156 max-w-full text-left pt-10">
+                    <section className="w-156 max-w-full text-left py-10">
                         {/* sticky  bg-background/60 backdrop-blur-sm */}
                         <div className="top-0 z-20 pb-2">
-                            <TypoH4 id="projects"># Personnal projects</TypoH4>
+                            <TypoH4 id="projects"># Projects</TypoH4>
                         </div>
-                        <GomokuCard className="w-full max-w-2xl" />
-                        <Chess42Card className="w-full max-w-2xl" />
+                        <div className="flex flex-col">
+                            <GomokuCard className="w-full max-w-2xl" />
+                            <SudokuSolverCard className="w-full max-w-2xl" />
+                            <Chess42Card className="w-full max-w-2xl" />
+                        </div>
                     </section>
                 </div>
             </div >

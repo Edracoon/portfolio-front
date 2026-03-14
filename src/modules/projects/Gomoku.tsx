@@ -3,7 +3,7 @@ import { LinkInline, TypoInline, TypoP } from "@/components/ui/typography";
 import { CPlusPlus, React, TailwindCSS, WebAssembly, TypeScript, GitHubLight, GitHubDark } from "developer-icons";
 import env from "@/env";
 import { useTheme } from "@/providers/ThemeProvider";
-import { Link } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 export function GomokuCard(props: React.HTMLAttributes<HTMLDivElement>) {
 
@@ -16,7 +16,7 @@ export function GomokuCard(props: React.HTMLAttributes<HTMLDivElement>) {
             {...props}
             className="w-full"
             title="GomokuV2"
-            links={[{ label: "github", href: "https://github.com/Edracoon/GomokuV2", icon: GithubIcon }, { label: "play", href: env.GOMOKU_URL!, icon: Link }]}
+            links={[{ label: "github", href: "https://github.com/Edracoon/GomokuV2", icon: GithubIcon }, { label: "play", href: env.GOMOKU_URL!, icon: ExternalLink }]}
             body={
                 <TypoP className="text-sm">
                     High-performance <LinkInline href={"https://wikipedia.org/wiki/Gomoku"} label={"gomoku"} className="font-semibold" /> game
@@ -29,14 +29,14 @@ export function GomokuCard(props: React.HTMLAttributes<HTMLDivElement>) {
             techStack={[CPlusPlus, WebAssembly, TypeScript, React, TailwindCSS]}
             infoList={[
                 <>
-                    Dashboard showing{" "}
-                    <TypoInline className="text-accent font-medium">code performances</TypoInline>
-                    , search depth, and moves scores
-                </>,
-                <>
                     Computing time constraint of less than{" "}
                     <TypoInline className="text-accent font-medium">500ms</TypoInline>{" "}
                     on average
+                </>,
+                <>
+                    Dashboard showing{" "}
+                    <TypoInline className="text-accent font-medium">code performances</TypoInline>
+                    , search depth, ...
                 </>,
                 <>
                     Multiple {" "}
